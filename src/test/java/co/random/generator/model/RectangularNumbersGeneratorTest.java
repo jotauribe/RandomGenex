@@ -17,14 +17,5 @@ public class RectangularNumbersGeneratorTest {
         int size = rns.size();
         assertEquals(8, size);
     }
-    @Test
-    public void math(){
-        NormalDistribution nd = new NormalDistribution(0, 1);
-        double  d = 1 - 0.83;
-        double cp = nd.inverseCumulativeProbability(d + (1-d)/2);
-        BigDecimal bd = new BigDecimal(cp);
-        System.out.print(bd.toPlainString());
-        assertEquals(1.96, cp, 0.005);
-    }
 
 }
