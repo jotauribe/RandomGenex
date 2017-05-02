@@ -78,6 +78,16 @@ public class RandomNumberSet {
         return sumatoria/(float)size();
     }
 
+    public int frecuencia(double lowerLimit, double upperLimit){
+        int frecuencia = 0;
+        for (Float f :
+                numeros) {
+            if (f >= lowerLimit && f < upperLimit)
+                frecuencia++;
+        }
+        return frecuencia;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
