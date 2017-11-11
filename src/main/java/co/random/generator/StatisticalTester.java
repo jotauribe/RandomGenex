@@ -1,7 +1,7 @@
-package co.random.generator.model;
+package co.random.generator;
 
 /**
- * Created by DiazHerrera on 30/04/2017.
+ * Created by Jota Uribe on 11/11/2017.
  */
 public class StatisticalTester {
 

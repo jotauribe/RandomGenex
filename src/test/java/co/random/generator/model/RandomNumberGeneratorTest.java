@@ -1,5 +1,7 @@
 package co.random.generator.model;
 
+import co.random.generator.RandomSequence;
+import co.random.generator.RandomNumberGenerator;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.junit.Test;
 
@@ -10,14 +12,19 @@ import static org.junit.Assert.*;
 /**
  * Created by DiazHerrera on 30/04/2017.
  */
-public class RectangularNumbersGeneratorTest {
+public class RandomNumberGeneratorTest {
     @Test
-    public void generar() throws Exception {
-        RandomNumberSet rns = RectangularNumbersGenerator.generar(4, 5, 7, 8);
+    public void generate() throws Exception {
+        //RandomNumberGenerator rng = new RandomNumberGenerator(7, 7, 7, 10);
+        RandomNumberGenerator rng = new RandomNumberGenerator(4, 5, 7, 8);
+        RandomSequence rns = rng.generate();
         int size = rns.size();
+        rns.stream()
+           .forEach(System.out::println);
         assertEquals(8, size);
     }
-    @Test
+
+    //@Test
     public void math(){
         NormalDistribution nd = new NormalDistribution(0, 1);
         double  d = 1 - 0.83;
