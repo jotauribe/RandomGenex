@@ -1,7 +1,6 @@
-package co.random.generator.model;
+package co.random.generation;
 
-import co.random.generator.RandomSequence;
-import co.random.generator.RandomNumberGenerator;
+import co.random.generation.RandomSequence;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.junit.Test;
 
@@ -12,15 +11,12 @@ import static org.junit.Assert.*;
 /**
  * Created by DiazHerrera on 30/04/2017.
  */
-public class RandomNumberGeneratorTest {
+public class RandomSequenceGeneratorTest {
     @Test
     public void generate() throws Exception {
-        //RandomNumberGenerator rng = new RandomNumberGenerator(7, 7, 7, 10);
-        RandomNumberGenerator rng = new RandomNumberGenerator(94, 81, 89, 100);
-        RandomSequence rns = rng.generate();
+        //RandomSequenceGenerator rng = new RandomSequenceGenerator(7, 7, 7, 10);
+        RandomSequence rns = new RandomSequence(94, 81, 89, 100);
         int size = rns.size();
-        rns.stream()
-           .forEach(System.out::println);
         assertEquals(100, size);
     }
 
