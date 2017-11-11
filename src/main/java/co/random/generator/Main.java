@@ -12,11 +12,14 @@ public class Main {
 
         int seed = 4, multiplier = 5, additiveConstant = 7, modulus = 8;
 
-        DoubleStream doubleStream = DoubleStream.iterate(
-                seed, previousNumber -> (((multiplier*previousNumber + additiveConstant) % modulus)/modulus)
-        );
+        //RandomNumberGenerator rng = new RandomNumberGenerator(97, 81, 93, 151);
+        //RandomSequence randomSequence = rng.generate();
+        //System.out.println(randomSequence.size());
 
-        doubleStream.forEach(System.out::println);
+        RandomSequenceGenerator randomSequenceGenerator = new RandomSequenceGenerator(8);
+        RandomSequence randomSequence = randomSequenceGenerator.generate();
+        randomSequence.stream().forEach(System.out::println);
+
 
     }
 

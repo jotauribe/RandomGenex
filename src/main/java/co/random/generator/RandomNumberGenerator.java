@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 
 /**
- * Created by DiazHerrera on 30/04/2017.
+ * Created by JotaUribe on 30/04/2017.
  */
 public class RandomNumberGenerator {
 

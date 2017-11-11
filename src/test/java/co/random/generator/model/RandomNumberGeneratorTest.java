@@ -16,12 +16,12 @@ public class RandomNumberGeneratorTest {
     @Test
     public void generate() throws Exception {
         //RandomNumberGenerator rng = new RandomNumberGenerator(7, 7, 7, 10);
-        RandomNumberGenerator rng = new RandomNumberGenerator(4, 5, 7, 8);
+        RandomNumberGenerator rng = new RandomNumberGenerator(94, 81, 89, 100);
         RandomSequence rns = rng.generate();
         int size = rns.size();
         rns.stream()
            .forEach(System.out::println);
-        assertEquals(8, size);
+        assertEquals(100, size);
     }
 
     //@Test

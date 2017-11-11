@@ -47,4 +47,19 @@ public class RandomSequence implements Iterable{
     public Iterator iterator() {
         return numbers.iterator();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        RandomSequence that = (RandomSequence) o;
+
+        return numbers.equals(that.numbers);
+    }
+
+    @Override
+    public int hashCode() {
+        return numbers.hashCode();
+    }
 }
