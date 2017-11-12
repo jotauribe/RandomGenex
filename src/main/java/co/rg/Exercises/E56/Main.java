@@ -21,7 +21,7 @@ public class Main {
 
     private static void performFirstStrategy() {
         //Creamos el generador de variables aleatorias distribuidas normalmente
-        NormalGenerator normalGenerator = GeneratorFactory.createNormalGenerator(400, 600, 100);
+        NormalGenerator normalGenerator = GeneratorFactory.createNormalGenerator(200, 600, 100);
         //Creamos el proveedor de componentes
         ComponentProvider componentProvider = new ComponentProvider(normalGenerator);
 
@@ -29,7 +29,7 @@ public class Main {
         Machine machine;
         try {
             components = componentProvider.getNewComponents(4);
-            machine = new Machine(components, 40000);
+            machine = new Machine(components, 20000);
             int counter = 0;
             while(machine.isLifetimeFulfilled()){
                 Component newComponent = componentProvider.getNewComponent();
@@ -53,7 +53,7 @@ public class Main {
 
     private static void performSecondStrategy() {
         //Creamos el generador de variables aleatorias distribuidas normalmente
-        NormalGenerator normalGenerator = GeneratorFactory.createNormalGenerator(400, 600, 100);
+        NormalGenerator normalGenerator = GeneratorFactory.createNormalGenerator(200, 600, 100);
         //Creamos el proveedor de componentes
         ComponentProvider componentProvider = new ComponentProvider(normalGenerator);
 
@@ -61,7 +61,7 @@ public class Main {
         Machine machine;
         try {
             components = componentProvider.getNewComponents(4);
-            machine = new Machine(components, 40000);
+            machine = new Machine(components, 20000);
             while(machine.isLifetimeFulfilled()){
                 List<Component> newComponents = componentProvider.getNewComponents(4);
                 machine.replaceAllComponents(newComponents);
