@@ -9,12 +9,11 @@ import co.rg.random.generation.sequence.RandomSequenceFactory;
  **/
 public class GeneratorFactory {
 
-    public static NormalGenerator createNormalGenerator(int size, double mean, double variance){
+    public static NormalGenerator createNormalGenerator(int size, double mean, double deviation){
         size = size*12;
         RandomSequenceFactory rsf = new RandomSequenceFactory(size);
         RandomSequence randomSequence = rsf.create();
-        randomSequence = rsf.create();
-        NormalGenerator normalGenerator = new NormalGenerator(randomSequence, mean, variance);
+        NormalGenerator normalGenerator = new NormalGenerator(randomSequence, mean, deviation);
         return normalGenerator;
     }
 

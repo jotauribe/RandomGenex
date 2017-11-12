@@ -16,16 +16,16 @@ public class NormalGenerator implements NumberGenerator{
 
     private double mean;
 
-    private double variance;
+    private double deviation;
 
     public NormalGenerator(RandomSequence randomSequence,
                            double mean,
-                           double variance) {
+                           double deviation) {
 
         sequenceIterator = randomSequence.iterator();
         this.randomSequence = randomSequence;
         this.mean = mean;
-        this.variance = variance;
+        this.deviation = deviation;
     }
 
     public boolean hasNextValue(){
@@ -41,7 +41,7 @@ public class NormalGenerator implements NumberGenerator{
             summation += (Double)sequenceIterator.next();
             counter++;
         }
-        double nextValue = mean + variance*(summation - 6);
+        double nextValue = mean + deviation *(summation - 6);
         return nextValue;
     }
 }

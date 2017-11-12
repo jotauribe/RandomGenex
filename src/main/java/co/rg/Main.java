@@ -58,7 +58,7 @@ public class Main {
         System.out.println(" MEDIA " + summation/(double)10);
          */
 
-        ExponentialGenerator pg = GeneratorFactory.createExponentialGenerator(20, 2);
+        ExponentialGenerator pg = GeneratorFactory.createExponentialGenerator(10000, 2);
         int counter = 0;
         double summation = 0;
         while(pg.hasNextValue()){
