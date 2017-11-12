@@ -1,4 +1,4 @@
-package co.random.generation;
+package co.rg.random.generation.sequence;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;

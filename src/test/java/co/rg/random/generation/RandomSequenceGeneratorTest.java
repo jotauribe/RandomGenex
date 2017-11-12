@@ -1,6 +1,6 @@
-package co.random.generation;
+package co.rg.random.generation;
 
-import co.random.generation.RandomSequence;
+import co.rg.random.generation.sequence.RandomSequence;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.junit.Test;
 

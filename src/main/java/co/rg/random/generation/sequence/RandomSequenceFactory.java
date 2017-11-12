@@ -1,4 +1,4 @@
-package co.random.generation;
+package co.rg.random.generation.sequence;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -41,7 +41,6 @@ public class RandomSequenceFactory {
                                 increment,
                                 modulus
                         );
-
                         if (randomSequence.size() >= size
                                 && randomSequences.add(randomSequence)) {
                             //System.out.println("SIZE: " + randomSequence.size()
