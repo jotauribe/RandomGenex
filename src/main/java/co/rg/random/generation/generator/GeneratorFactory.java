@@ -31,4 +31,11 @@ public class GeneratorFactory {
         return poissonGenerator;
     }
 
+    public static UniformGenerator createUniformGenerator(int size, double loweLimit, double upperLimit){
+        RandomSequenceFactory rsf = new RandomSequenceFactory(size);
+        RandomSequence randomSequence = rsf.create();
+        UniformGenerator uniformGenerator = new UniformGenerator(randomSequence, loweLimit, upperLimit);
+        return uniformGenerator;
+    }
+
 }
