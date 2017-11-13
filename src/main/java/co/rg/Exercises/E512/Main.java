@@ -58,13 +58,7 @@ public class Main {
                     client.setServiceTime(serviceTimeOneGenerator.nextValue());
                     client.setServiceStartTime(Double.max(client.getArrivalTime(), clients.getLast().exitTime()));
                 }
-                //System.out.println();
-                //System.out.println("Start time  " + client.getServiceStartTime());
-                //System.out.println("Service time  " + client.getServiceTime());
-                //System.out.println("exit time " + client.exitTime());
-                //System.out.println("time in system " + client.timeInSystem());
                 clients.add(client);
-                //System.out.println("SIZE " + clients.size());
             }
 
             double summation = 0;
