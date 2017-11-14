@@ -30,7 +30,8 @@ public class UniformGenerator implements NumberGenerator {
     @Override
     public Double nextValue() {
         if(hasNextValue()){
-            return ((upperLimit - lowerLimit)*(double)sequenceIterator.next()) + lowerLimit;
+            double next = ((upperLimit - lowerLimit)*(double)sequenceIterator.next()) + lowerLimit;
+            return next;
         }
         return null;
     }

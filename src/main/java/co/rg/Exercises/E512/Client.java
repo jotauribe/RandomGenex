@@ -6,13 +6,15 @@ package co.rg.Exercises.E512;
  **/
 public class Client {
 
-    private int index;
+    public int index;
 
     private double arrivalTime;
 
     private double serviceStartTime;
 
     private double serviceTime;
+
+    private double totalTime;
 
 
     public Client(int index, double arrivalTime) {
@@ -34,6 +36,14 @@ public class Client {
 
     public void setArrivalTime(double arrivalTime) {
         this.arrivalTime = arrivalTime;
+    }
+
+    public double getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(double totalTime) {
+        this.totalTime = totalTime;
     }
 
     public double getServiceStartTime() {

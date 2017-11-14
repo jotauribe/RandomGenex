@@ -22,14 +22,14 @@ public class Main {
         ExponentialGenerator serviceTimeOneGenerator = GeneratorFactory.createExponentialGenerator(1500, 2);
 
         //Generador para el tiempo de servicio en la segunda estacion
-        UniformGenerator serviceTimeTwoGenerator = GeneratorFactory.createUniformGenerator(200, 1, 2);
+        UniformGenerator serviceTimeTwoGenerator = GeneratorFactory.createUniformGenerator(1500, 1, 2);
 
 
 
 
         double arrivalTimesSummation = 0;
         double totalArrivals = 0;
-        double averageTimeInSystem = 0;
+        double timeInSystemSummation = 0;
         double counter = 0;
 
         while (arrivalTimeGenerator.hasNextValue()){
@@ -47,6 +47,7 @@ public class Main {
 
                 //Llego un cliente
                 Client client = clientGenerator.nextClient();
+                System.out.println("client "+i+" arrival time =  "+client.getArrivalTime());
 
 
                 if(clients.isEmpty()){
@@ -59,6 +60,10 @@ public class Main {
                     client.setServiceStartTime(Double.max(client.getArrivalTime(), clients.getLast().exitTime()));
                 }
                 clients.add(client);
+                System.out.println("client "+i+" service start time = "+client.getServiceStartTime());
+                System.out.println("client "+i+" exit time "+i+" = "+client.exitTime());
+                System.out.println("----------------------------------------------------");
+
             }
 
             double summation = 0;
@@ -67,11 +72,58 @@ public class Main {
                 //System.out.println("time in system " + c.timeInSystem());
             }
             double average = arrivals == 0? 0: summation/arrivals;
-            averageTimeInSystem += average;
-            System.out.println("PROMEDIO TIEMPO EN SISTEMA  " + average);
-            System.out.println("PROMEDIO TOTAL TIEMPO EN SISTEMA  " + averageTimeInSystem/counter);
+            timeInSystemSummation += average;
+
+
+
+
+            //SEGUNDA PARTE
+            if (!clients.isEmpty()) {
+                System.out.println();
+                System.out.println("");
+                System.out.println("SEGUNDA PARTE");
+                clientGenerator.setNextClients(clients);
+                LinkedList<Client> clients2 = new LinkedList<>();
+
+                for (int i = 1; i <= arrivals; i++){
+
+                    //Llego un cliente
+                    Client client = clientGenerator.nextClient();
+
+
+                    if(clients2.isEmpty()){
+                        double serviceTime = serviceTimeTwoGenerator.nextValue();
+                        client.setServiceTime(serviceTime);
+                        client.setServiceStartTime(client.getArrivalTime());
+                    }
+                    else{
+                        client.setServiceTime(serviceTimeTwoGenerator.nextValue());
+                        client.setServiceStartTime(Double.max(client.getArrivalTime(), clients2.getLast().exitTime()));
+                        client.setTotalTime(client.getTotalTime() + client.timeInSystem());
+                    }
+                    clients2.add(client);
+                    System.out.println("client "+i+" arrival time =  "+client.getArrivalTime());
+                    System.out.println("client "+i+" service start time = "+client.getServiceStartTime());
+                    System.out.println("client "+i+" service time = "+client.getServiceTime());
+                    System.out.println("client "+i+" exit time  = "+client.exitTime());
+                    System.out.println("client "+i+" total time in system  = "+client.getTotalTime());
+                    System.out.println("----------------------------------------------------");
+                }
+                System.out.println();
+
+                double summation2 = 0;
+                for(Client c: clients2){
+                    summation2 += c.timeInSystem();
+                    //System.out.println("time in system " + c.timeInSystem());
+                }
+                double average2 = arrivals == 0? 0: summation2/arrivals;
+                timeInSystemSummation += average2;
+            }
 
         }
+        //FIN WHILE
+        System.out.println("\n\n COUNTER: "+counter + " corridas");
+        System.out.println("\n\n TIEMPO PROMEDIO EN SISTEMA: "+timeInSystemSummation/counter + " minutos");
 
 
     }
